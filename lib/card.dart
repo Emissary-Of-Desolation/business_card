@@ -1,88 +1,123 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class BusinessCard extends StatelessWidget {
   const BusinessCard({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromRGBO(249, 97, 103, 0.8),
-        body: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              CircleAvatar(
-                radius: 80,
-                backgroundColor: Colors.teal,
-                backgroundImage: AssetImage('assets/images/m2.jpg'),
-              ),
-              Text(
-                'Robin Roy',
-                style: TextStyle(
-                  fontFamily: 'Pacifico',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 40,
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Color(0xFFFC8181), Color(0xFFC4B9E4)],
+              begin: Alignment.topCenter,
+              end: Alignment.bottomCenter,
+            ),
+          ),
+          child: SafeArea(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    border: Border.all(
+                      color: const Color.fromARGB(255, 242, 183, 218),
+                      width: 4,
+                    ),
+                  ),
+                  child: const CircleAvatar(
+                    radius: 80,
+                    backgroundImage: AssetImage('assets/images/m2.jpg'),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                Text(
+                  'Robin Roy',
+                  style: GoogleFonts.pacifico(
+                    textStyle: const TextStyle(
+                      fontSize: 40,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white,
+                      letterSpacing: 1.5,
+                    ),
+                  ),
+                ),
+                Text(
+                  'FLUTTER DEVELOPER\n&\nETHICAL HACKER',
+                  style: GoogleFonts.rubik(
+                    textStyle: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Color.fromARGB(255, 251, 227, 228),
+                      letterSpacing: 2.5,
+                    ),
+                  ),
+                  textAlign: TextAlign.center,
+                ),
+                const SizedBox(
+                  height: 20,
+                  width: 200,
+                  child: Divider(
+                    color: Color(0xFFFFCCCF),
+                    thickness: 1.5,
+                  ),
+                ),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
                   color: Colors.white,
-                  letterSpacing: 1.5,
-                ),
-              ),
-              Text(
-                'FLUTTER DEVELOPER \n\t\t                  & \n    ETHICAL HACKER',
-                style: TextStyle(
-                  fontFamily: 'RubikMoonrocks Regular',
-                  fontWeight: FontWeight.bold,
-                  fontSize: 20,
-                  color: Color.fromRGBO(255, 204, 207, 1),
-                  letterSpacing: 2.5,
-                ),
-              ),
-              SizedBox(
-                height: 20,
-                width: 200,
-                child: Divider(
-                  color: Color.fromRGBO(255, 204, 207, 1),
-                  thickness: 1.5,
-                ),
-              ),
-              Card(
-                margin: EdgeInsets.all(20),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.phone,
-                    color: Color.fromRGBO(249, 97, 103, 0.8),
-                  ),
-                  title: Text(
-                    '+91 6238037158',
-                    style: TextStyle(
-                      color: Color.fromRGBO(249, 97, 103, 0.8),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  child: const ListTile(
+                    leading: Icon(
+                      Icons.phone,
+                      color: Color(0xFFFC8181),
+                    ),
+                    title: Text(
+                      '+91 6238037158',
+                      style: TextStyle(
+                        color: Color(0xFFFC8181),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Card(
-                margin: EdgeInsets.all(20),
-                child: ListTile(
-                  leading: Icon(
-                    Icons.email,
-                    color: Color.fromRGBO(249, 97, 103, 0.8),
+                Card(
+                  elevation: 5,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10),
                   ),
-                  title: Text(
-                    'robinroy1370@gmail.com',
-                    style: TextStyle(
-                      color: Color.fromRGBO(249, 97, 103, 0.8),
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
+                  margin:
+                      const EdgeInsets.symmetric(vertical: 10, horizontal: 20),
+                  color: Colors.white,
+                  child: const ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Color(0xFFFC8181),
+                    ),
+                    title: Text(
+                      'robinroy1370@gmail.com',
+                      style: TextStyle(
+                        color: Color(0xFFFC8181),
+                        fontSize: 20,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
